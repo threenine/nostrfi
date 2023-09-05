@@ -47,6 +47,9 @@ public class EventsConfiguration : IEntityTypeConfiguration<Events>
             .HasColumnType(ColumnTypes.Text)
             .IsRequired();
 
-        builder.HasMany(e => e.Tags);
+        builder.HasMany(e => e.Tags)
+            .WithOne(t => t.Event)
+            .HasForeignKey(t => t.EventId)
+            .IsRequired();
     }
 }

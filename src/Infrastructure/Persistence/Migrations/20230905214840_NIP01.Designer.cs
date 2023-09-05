@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Nostrfi.Migrations
 {
     [DbContext(typeof(NostrfiDbContext))]
-    [Migration("20230905203336_NIP01")]
+    [Migration("20230905214840_NIP01")]
     partial class NIP01
     {
         /// <inheritdoc />
@@ -72,9 +72,6 @@ namespace Nostrfi.Migrations
                         .HasColumnType("text")
                         .HasColumnName("event_id");
 
-                    b.Property<string>("EventsId")
-                        .HasColumnType("text");
-
                     b.Property<string>("Tag")
                         .IsRequired()
                         .HasColumnType("text")
@@ -87,16 +84,20 @@ namespace Nostrfi.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EventsId");
+                    b.HasIndex("EventId");
 
                     b.ToTable("tags", "nostrfi");
                 });
 
             modelBuilder.Entity("Persistence.Models.Tags", b =>
                 {
-                    b.HasOne("Persistence.Models.Events", null)
+                    b.HasOne("Persistence.Models.Events", "Event")
                         .WithMany("Tags")
-                        .HasForeignKey("EventsId");
+                        .HasForeignKey("EventId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Event");
                 });
 
             modelBuilder.Entity("Persistence.Models.Events", b =>

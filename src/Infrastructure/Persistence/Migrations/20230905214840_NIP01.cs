@@ -42,25 +42,25 @@ namespace Nostrfi.Migrations
                     id = table.Column<string>(type: "text", nullable: false),
                     event_id = table.Column<string>(type: "text", nullable: false),
                     tag = table.Column<string>(type: "text", nullable: false),
-                    value = table.Column<string>(type: "text", nullable: false),
-                    EventsId = table.Column<string>(type: "text", nullable: true)
+                    value = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_tags", x => x.id);
                     table.ForeignKey(
-                        name: "FK_tags_events_EventsId",
-                        column: x => x.EventsId,
+                        name: "FK_tags_events_event_id",
+                        column: x => x.event_id,
                         principalSchema: "nostrfi",
                         principalTable: "events",
-                        principalColumn: "id");
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_tags_EventsId",
+                name: "IX_tags_event_id",
                 schema: "nostrfi",
                 table: "tags",
-                column: "EventsId");
+                column: "event_id");
         }
 
         /// <inheritdoc />

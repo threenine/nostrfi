@@ -5,5 +5,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.10"/>
     <PackageReference Include="Threenine.Database.Configuration" Version="1.0.3" />
+        <PackageReference Include="Npgsql" Version="7.0.4"/>
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.4"/>
     </ItemGroup>
 </Project>
