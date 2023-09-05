@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Update="Threenine.Database.Configuration" Version="1.0.4" />
+  </ItemGroup>
+
 </Project>

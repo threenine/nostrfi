@@ -1,10 +1,12 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
 using Database;
 using Microsoft.EntityFrameworkCore;
 using Threenine.Configurations.PostgreSql;
 
 namespace Nostrfi;
 
+[ExcludeFromCodeCoverage]
 public class NostrfiDbContext : DbContext
 {
     public NostrfiDbContext(DbContextOptions<NostrfiDbContext> options) : base(options)

@@ -1,4 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\Persistence.Models\Persistence.Models.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Update="Threenine.Database.Configuration" Version="1.0.4" />
+  </ItemGroup>
 
  
 </Project>
