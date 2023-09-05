@@ -12,7 +12,11 @@
         <license>https://github.com/threenine/nostrfi/blob/master/LICENSE</license>
         <PackageIcon>nostrfi.png</PackageIcon>
         <Version></Version>
-        <RootNamespace>PayBolt</RootNamespace>
+        <RootNamespace>Nostrfi</RootNamespace>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+      
+        
     </PropertyGroup>
     <ItemGroup>
         <Content Include="$(MSBuildThisFileDirectory)nostrfi.png" Pack="true" PackagePath="/">
