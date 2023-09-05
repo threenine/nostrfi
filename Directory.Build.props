@@ -1,0 +1,22 @@
+<Project>
+    <PropertyGroup>
+        <Authors>threenine.co.uk</Authors>
+        <TargetFramework>net7.0</TargetFramework>
+        <Title>nostrfi.net</Title>
+        <Description>Dotnet nostr relay and sdk</Description>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>nostr</PackageTags>
+        <RepositoryUrl>https://github.com/threenine/nostrfi</RepositoryUrl>
+        <Copyright>Copyright © $([System.DateTime]::Now.ToString("yyyy"))  threenine.co.uk</Copyright>
+        <PackageProjectUrl>https://www.threenine.co.uk/nostrfi</PackageProjectUrl>
+        <license>https://github.com/threenine/nostrfi/blob/master/LICENSE</license>
+        <PackageIcon>nostrfi.png</PackageIcon>
+        <Version></Version>
+        <RootNamespace>PayBolt</RootNamespace>
+    </PropertyGroup>
+    <ItemGroup>
+        <Content Include="$(MSBuildThisFileDirectory)nostrfi.png" Pack="true" PackagePath="/">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+</Project>
