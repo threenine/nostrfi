@@ -1,15 +1,29 @@
 using System.Net;
 using System.Net.WebSockets;
 using System.Text;
+using EFCoreSecondLevelCacheInterceptor;
 using Microsoft.EntityFrameworkCore;
 using Nostrfi;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(opt => opt.AddDefaultPolicy(c => c.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()));
-var connectionString = builder.Configuration.GetConnectionString("Nostrfi_DB");
-builder.Services.AddDbContext<NostrfiDbContext>(x => x.UseNpgsql(connectionString));
 
+//TODO: Add Validation Check to ensure connection string is not null
+var connectionString = builder.Configuration.GetConnectionString(ConnectionStringNames.Nostrfi);
+
+
+builder.Services.AddDbContextFactory<NostrfiDbContext>((provider, optionsBuilder) =>
+{
+    optionsBuilder.UseNpgsql(connectionString, options =>
+    {
+        options.EnableRetryOnFailure(10);
+    });
+   optionsBuilder.AddInterceptors(provider.GetRequiredService<SecondLevelCacheInterceptor>());
+});
+
+builder.Services.AddEFSecondLevelCache(options =>
+    options.UseMemoryCacheProvider(CacheExpirationMode.Sliding, TimeSpan.FromMinutes(5)).DisableLogging(true).UseCacheKeyPrefix("EF_"));
 
 builder.WebHost.UseUrls("http://localhost:5000");
 
@@ -39,6 +53,6 @@ app.Map("/ws", async context =>
         context.Response.StatusCode = (int) HttpStatusCode.BadRequest;
     }
 });
-app.MapGet("/", () => "Hello World!");
+
 
 app.Run();
