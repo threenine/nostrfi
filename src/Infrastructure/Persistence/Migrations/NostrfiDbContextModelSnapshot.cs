@@ -24,7 +24,7 @@ namespace Nostrfi.Migrations
             NpgsqlModelBuilderExtensions.HasPostgresExtension(modelBuilder, "uuid-ossp");
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("Persistence.Models.Events", b =>
+            modelBuilder.Entity("Nostrfi.Persistence.Models.Nostr.Events", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text")
@@ -58,7 +58,7 @@ namespace Nostrfi.Migrations
                     b.ToTable("events", "nostrfi");
                 });
 
-            modelBuilder.Entity("Persistence.Models.Tags", b =>
+            modelBuilder.Entity("Nostrfi.Persistence.Models.Nostr.Tags", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text")
@@ -86,9 +86,9 @@ namespace Nostrfi.Migrations
                     b.ToTable("tags", "nostrfi");
                 });
 
-            modelBuilder.Entity("Persistence.Models.Tags", b =>
+            modelBuilder.Entity("Nostrfi.Persistence.Models.Nostr.Tags", b =>
                 {
-                    b.HasOne("Persistence.Models.Events", "Event")
+                    b.HasOne("Nostrfi.Persistence.Models.Nostr.Events", "Event")
                         .WithMany("Tags")
                         .HasForeignKey("EventId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -97,7 +97,7 @@ namespace Nostrfi.Migrations
                     b.Navigation("Event");
                 });
 
-            modelBuilder.Entity("Persistence.Models.Events", b =>
+            modelBuilder.Entity("Nostrfi.Persistence.Models.Nostr.Events", b =>
                 {
                     b.Navigation("Tags");
                 });

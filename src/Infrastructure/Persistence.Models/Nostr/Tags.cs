@@ -1,4 +1,4 @@
-﻿namespace Persistence.Models;
+﻿namespace Nostrfi.Persistence.Models.Nostr;
 
 public class Tags
 {

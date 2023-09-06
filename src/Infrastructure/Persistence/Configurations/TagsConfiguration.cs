@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Persistence.Models;
+using Nostrfi.Persistence.Models;
+using Nostrfi.Persistence.Models.Nostr;
 using Threenine;
 using Threenine.Configurations.PostgreSql;
 

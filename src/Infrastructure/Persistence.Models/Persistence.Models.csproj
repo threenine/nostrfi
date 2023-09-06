@@ -1,10 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
+    
 
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
+      <RootNamespace>Nostrfi.Persistence.Models</RootNamespace>
     </PropertyGroup>
+    
 
     <ItemGroup>
       <PackageReference Update="Threenine.Database.Configuration" Version="1.0.4" />

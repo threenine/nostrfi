@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Persistence.Models;
+using Nostrfi.Persistence.Models.Nostr;
 using Threenine;
 using Threenine.Configurations.PostgreSql;
 
@@ -24,7 +24,6 @@ public class EventsConfiguration : IEntityTypeConfiguration<Events>
             .HasColumnType(ColumnTypes.Text)
            .IsRequired();
         
-        
         builder.Property(e => e.CreatedAt)
             .HasColumnName(nameof(Events.CreatedAt).ToSnakeCase())
             .HasColumnType(ColumnTypes.DateTimeOffSet)
@@ -35,12 +34,10 @@ public class EventsConfiguration : IEntityTypeConfiguration<Events>
             .HasColumnType(ColumnTypes.Integer)
             .IsRequired();
         
-        
         builder.Property(e => e.Content)
             .HasColumnName(nameof(Events.Content).ToSnakeCase())
             .HasColumnType(ColumnTypes.Text)
             .IsRequired(false);
-        
         
         builder.Property(e => e.Signature)
             .HasColumnName(nameof(Events.Signature).ToSnakeCase())
