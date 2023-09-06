@@ -1,13 +1,11 @@
 using System.Data.Common;
 using Microsoft.IdentityModel.Tokens;
-using Nostrfi.Relay;
+using static Nostrfi.Relay.RelayResources;
 
-namespace Nostrfi.Validations;
+namespace Nostrfi.Relay.Validations;
 
 public class ConnectionStrings : Dictionary<string, string>
 {
-    
-    
     public ConnectionStrings()
     {
         DbProviderFactories.RegisterFactory(ConnectionStringNames.Postgre, Npgsql.NpgsqlFactory.Instance);
@@ -27,16 +25,17 @@ public class ConnectionStrings : Dictionary<string, string>
                 using var connection = factory.CreateConnection();
                 if (connection == null)
                 {
-                    throw new Exception(string.Format(RelayResources.ConnectionStringsExceptionMessage, key));
+                    throw new Exception(string.Format(ConnectionStringsExceptionMessage, key));
                 }
                 connection.ConnectionString = value;
                 connection.Open();
+                logger.LogInformation(DatabaseConnectionSuccess, key);
             }
             catch (Exception e)
             {
                 
-                logger.LogError("Could not connect to {Database}", key);
-                errors.Add(new Exception(string.Format(RelayResources.ConnectionStringInvalidDefined, key), e));
+                logger.LogError(DatabaseConnectionFailure, key);
+                errors.Add(new Exception(string.Format(ConnectionStringInvalidDefined, key), e));
             }
         }
         return errors.IsNullOrEmpty();

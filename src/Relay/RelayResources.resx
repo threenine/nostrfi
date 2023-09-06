@@ -30,4 +30,10 @@
     <data name="ConnectionStringsInvalid" xml:space="preserve">
         <value>One or more connection strings are invalid </value>
     </data>
+    <data name="DatabaseConnectionSuccess" xml:space="preserve">
+        <value>Successfully connected to {Database}</value>
+    </data>
+    <data name="DatabaseConnectionFailure" xml:space="preserve">
+        <value>Database connection failure {Database}</value>
+    </data>
 </root>

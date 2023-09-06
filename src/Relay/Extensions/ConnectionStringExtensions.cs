@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Options;
 using Nostrfi.Relay;
-using Nostrfi.Validations;
+using Nostrfi.Relay.Validations;
 
 namespace Nostrfi.Extensions;
 

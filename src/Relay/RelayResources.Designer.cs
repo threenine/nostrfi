@@ -68,5 +68,17 @@ namespace Nostrfi.Relay {
                 return ResourceManager.GetString("ConnectionStringsInvalid", resourceCulture);
             }
         }
+        
+        internal static string DatabaseConnectionSuccess {
+            get {
+                return ResourceManager.GetString("DatabaseConnectionSuccess", resourceCulture);
+            }
+        }
+        
+        internal static string DatabaseConnectionFailure {
+            get {
+                return ResourceManager.GetString("DatabaseConnectionFailure", resourceCulture);
+            }
+        }
     }
 }
