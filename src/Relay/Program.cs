@@ -4,19 +4,18 @@ using System.Text;
 using EFCoreSecondLevelCacheInterceptor;
 using Microsoft.EntityFrameworkCore;
 using Nostrfi;
-using Nostrfi.Services;
+using Nostrfi.Extensions;
+using Nostrfi.Relay.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(opt => opt.AddDefaultPolicy(c => c.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()));
 
-//TODO: Add Validation Check to ensure connection string is not null
-var connectionString = builder.Configuration.GetConnectionString(ConnectionStringNames.Nostrfi);
-
+builder.Services.ValidateConnectionStrings().ValidateOnStart();
 
 builder.Services.AddDbContextFactory<NostrfiDbContext>((provider, optionsBuilder) =>
 {
-    optionsBuilder.UseNpgsql(connectionString, options =>
+    optionsBuilder.UseNpgsql(builder.Configuration.GetConnectionString(ConnectionStringNames.Postgre), options =>
     {
         options.EnableRetryOnFailure(10);
     });
@@ -24,7 +23,7 @@ builder.Services.AddDbContextFactory<NostrfiDbContext>((provider, optionsBuilder
 });
 
 builder.Services.AddEFSecondLevelCache(options =>
-    options.UseMemoryCacheProvider(CacheExpirationMode.Sliding, TimeSpan.FromMinutes(5)).DisableLogging(true).UseCacheKeyPrefix("EF_"));
+    options.UseMemoryCacheProvider(CacheExpirationMode.Sliding, TimeSpan.FromMinutes(5)).DisableLogging(true).UseCacheKeyPrefix(Constants.CachePreFix));
 
 builder.Services.AddHostedService<MigrationsHostedService>();
 

@@ -3,8 +3,36 @@
 
 
 
+  <PropertyGroup>
+    <RootNamespace>Nostrfi.Relay</RootNamespace>
+  </PropertyGroup>
+  
+
+
+
   <ItemGroup>
     <ProjectReference Include="..\Infrastructure\Persistence\Persistence.csproj" />
+  </ItemGroup>
+  
+
+
+
+  <ItemGroup>
+    <EmbeddedResource Update="RelayResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>RelayResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  
+
+
+
+  <ItemGroup>
+    <Compile Update="RelayResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>RelayResources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 
 </Project>

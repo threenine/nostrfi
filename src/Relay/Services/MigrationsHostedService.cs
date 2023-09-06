@@ -1,7 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace Nostrfi.Services;
+namespace Nostrfi.Relay.Services;
 
+/// <summary>
+/// Manages database migrations to ensure the database is up to date with the latest version of the application.
+/// </summary>
 public class MigrationsHostedService : IHostedService
 {
     private readonly IDbContextFactory<NostrfiDbContext> _factory;
@@ -28,7 +31,7 @@ public class MigrationsHostedService : IHostedService
         }
         catch (Exception e)
         {
-            _logger.LogError(e, "{MigrationsHostedService} error on the MigrationStartupTask", nameof(MigrationsHostedService));
+            _logger.LogError(e, "{MigrationsHostedService} error on the Migrations Startup Task", nameof(MigrationsHostedService));
             throw;
         }
     }
