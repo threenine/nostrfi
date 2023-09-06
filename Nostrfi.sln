@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence", "src\Infrastr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence.Models", "src\Infrastructure\Persistence.Models\Persistence.Models.csproj", "{B9E1499D-8814-483F-A5A9-B29AD451E216}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{1EB3966A-0260-442F-ACAF-0047DF713731}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nostrfi.Tests", "tests\Nostrfi.Tests\Nostrfi.Tests.csproj", "{FFE9F249-3F8A-404D-A2B2-0A698981F3CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,10 +36,15 @@ Global
 		{B9E1499D-8814-483F-A5A9-B29AD451E216}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9E1499D-8814-483F-A5A9-B29AD451E216}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9E1499D-8814-483F-A5A9-B29AD451E216}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFE9F249-3F8A-404D-A2B2-0A698981F3CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFE9F249-3F8A-404D-A2B2-0A698981F3CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFE9F249-3F8A-404D-A2B2-0A698981F3CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFE9F249-3F8A-404D-A2B2-0A698981F3CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A20FAD38-B69D-46D1-84B2-306617D79089} = {1D05AE2E-EEC1-4BA5-A521-84306864D4D4}
 		{313F2375-22B9-49CF-98EC-7F37768CAF50} = {1D05AE2E-EEC1-4BA5-A521-84306864D4D4}
 		{B9E1499D-8814-483F-A5A9-B29AD451E216} = {1D05AE2E-EEC1-4BA5-A521-84306864D4D4}
+		{FFE9F249-3F8A-404D-A2B2-0A698981F3CD} = {1EB3966A-0260-442F-ACAF-0047DF713731}
 	EndGlobalSection
 EndGlobal
