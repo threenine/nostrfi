@@ -4,6 +4,7 @@ using System.Text;
 using EFCoreSecondLevelCacheInterceptor;
 using Microsoft.EntityFrameworkCore;
 using Nostrfi;
+using Nostrfi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +25,8 @@ builder.Services.AddDbContextFactory<NostrfiDbContext>((provider, optionsBuilder
 
 builder.Services.AddEFSecondLevelCache(options =>
     options.UseMemoryCacheProvider(CacheExpirationMode.Sliding, TimeSpan.FromMinutes(5)).DisableLogging(true).UseCacheKeyPrefix("EF_"));
+
+builder.Services.AddHostedService<MigrationsHostedService>();
 
 builder.WebHost.UseUrls("http://localhost:5000");
 
