@@ -1,3 +1,3 @@
 # nostrfi
 
-A c# dotnet implementation of the Nostr protocol and relay.
+A c# dotnet implementation of the Nostr protocol  relay.

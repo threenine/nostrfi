@@ -23,9 +23,9 @@ public class ConnectionManager
         return _sockets.FirstOrDefault(p => p.Value == socket).Key;
     }
     
-    public void AddSocket(WebSocket socket)
+    public void  AddSocket(WebSocket socket)
     {
-        _sockets.TryAdd(ConnectionId, socket);
+       _sockets.TryAdd(ConnectionId, socket);
     }
     
     public async Task RemoveSocket(string id)
