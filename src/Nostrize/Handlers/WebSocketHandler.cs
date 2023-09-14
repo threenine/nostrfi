@@ -24,8 +24,7 @@ public abstract class WebSocketHandler
 
    private static async Task SendMessageAsync(WebSocket socket, string message)
    {
-       if(socket.State != WebSocketState.Open)
-           return;
+       if(socket.State != WebSocketState.Open) return;
 
        await socket.SendAsync(buffer: new ArraySegment<byte>(array: Encoding.ASCII.GetBytes(message),
                offset: 0,

@@ -6,10 +6,8 @@ namespace Nostrfi.Nostrize;
 
 public static class NostrBuilderExtensions
 {
-
     public static IApplicationBuilder AddNostr(this IApplicationBuilder app)
     {
-        
         app.UseMiddleware<WebSocketMiddleware>();
         return app;
     }
