@@ -4,6 +4,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Update="Threenine.Database.Configuration" Version="1.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Migrations\" />

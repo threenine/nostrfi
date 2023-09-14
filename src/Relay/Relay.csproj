@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Infrastructure\Persistence\Persistence.csproj" />
+    <ProjectReference Include="..\Nostrize\Nostrize.csproj" />
   </ItemGroup>
   
 
@@ -33,6 +34,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>RelayResources.resx</DependentUpon>
     </Compile>
+  </ItemGroup>
+  
+
+
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
   </ItemGroup>
 
 </Project>
