@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Nostrfi.Nostrize.Handlers;
+using Nostrfi.Nostrize.MessageHandlers;
 
 namespace Nostrfi.Nostrize;
 
@@ -15,8 +16,11 @@ public static class NostrBuilderExtensions
     public static IServiceCollection AddNostrServices(this IServiceCollection services)
     {
         services.AddSingleton<NostrHandler>();
-        services.AddTransient<ConnectionManager>();
-     
+        services.AddSingleton<ConnectionManager>();
+
+        services.AddSingleton<IMessageHandler, EventMessageHandler>();
+        services.AddSingleton<IMessageHandler, RequestMessageHandler>();
+        services.AddSingleton<IMessageHandler, CloseMessageHandler>();
         return services;
     }
 }

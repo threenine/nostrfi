@@ -18,15 +18,13 @@ public class NostrHandler : WebSocketHandler
         await base.OnConnected(socket);
         var socketId = WebSocketConnectionManager.GetId(socket);
         _logger.LogInformation("WebSocket connection request: {SocketId}", socketId);
-    
-        
-        
     }
 
     public override async Task ReceiveAsync(WebSocket socket, WebSocketReceiveResult result, byte[] buffer)
     {
         var socketId = WebSocketConnectionManager.GetId(socket);
-        var message = $"{socketId} said: {Encoding.UTF8.GetString(buffer, 0, result.Count)}";
+        var message = Encoding.UTF8.GetString(buffer, 0, result.Count);
+      
         
     }
 }
