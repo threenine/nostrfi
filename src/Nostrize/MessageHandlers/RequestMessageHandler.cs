@@ -8,6 +8,6 @@ public class RequestMessageHandler : IMessageHandler
 {
     public Task Handle(string connectionId, string msg)
     {
-        throw new NotImplementedException();
+        return Task.CompletedTask; 
     }
 }

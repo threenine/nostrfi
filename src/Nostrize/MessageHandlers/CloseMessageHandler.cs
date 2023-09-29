@@ -7,9 +7,9 @@ namespace Nostrfi.Nostrize.MessageHandlers;
 /// </summary>
 public class CloseMessageHandler : IMessageHandler, IHostedService
 {
-    public Task Handle(string connectionId, string msg)
+    public  Task Handle(string connectionId, string msg)
     {
-        throw new NotImplementedException();
+       return Task.CompletedTask;
     }
 
     public Task StartAsync(CancellationToken cancellationToken)

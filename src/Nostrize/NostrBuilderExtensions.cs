@@ -17,10 +17,11 @@ public static class NostrBuilderExtensions
     {
         services.AddSingleton<NostrHandler>();
         services.AddSingleton<ConnectionManager>();
-
+   
         services.AddSingleton<IMessageHandler, EventMessageHandler>();
         services.AddSingleton<IMessageHandler, RequestMessageHandler>();
         services.AddSingleton<IMessageHandler, CloseMessageHandler>();
+        services.AddSingleton<WebSocketMiddleware>();
         return services;
     }
 }

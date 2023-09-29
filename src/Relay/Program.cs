@@ -28,7 +28,7 @@ builder.Services.AddHostedService<MigrationsHostedService>();
 builder.Services.AddNostrServices();
 
 
-builder.WebHost.UseUrls("http://localhost:5000");
+builder.WebHost.UseUrls("http://localhost:6969");
 
 
 var app = builder.Build();
