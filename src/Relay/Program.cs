@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Nostrfi;
 using Nostrfi.Extensions;
 using Nostrfi.Nostrize;
-using Nostrfi.Relay;
+using Nostrfi.Nostrize.Settings;
 using Nostrfi.Relay.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,8 +27,8 @@ builder.Services.AddEFSecondLevelCache(options =>
 builder.Services.AddHostedService<MigrationsHostedService>();
 builder.Services.AddNostrServices();
 
-
-builder.WebHost.UseUrls("http://localhost:6969");
+var nostr = builder.Configuration.GetSection(nameof(Nostr)).Get<Nostr>();
+builder.WebHost.UseUrls(nostr.BaseUrl);
 
 
 var app = builder.Build();
