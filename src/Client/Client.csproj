@@ -1,20 +1,14 @@
-<Project Sdk="Microsoft.NET.Sdk">
-    
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-      <RootNamespace>Nostrfi.Persistence.Models</RootNamespace>
-    </PropertyGroup>
-    
+
 
     <ItemGroup>
-      <PackageReference Update="Threenine.Database.Configuration" Version="1.0.4" />
-      <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
-      <PackageReference Update="Npgsql" Version="8.0.1" />
       <PackageReference Update="Microsoft.EntityFrameworkCore.Relational" Version="8.0.0" />
       <PackageReference Update="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
+      <PackageReference Update="Npgsql" Version="8.0.1" />
       <PackageReference Update="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.0" />
     </ItemGroup>
 

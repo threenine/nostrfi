@@ -1,7 +1,7 @@
 <Project>
     <PropertyGroup>
         <Authors>threenine.co.uk</Authors>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <Title>nostrfi.net</Title>
         <Description>Dotnet nostr relay and sdk</Description>
         <RepositoryType>git</RepositoryType>

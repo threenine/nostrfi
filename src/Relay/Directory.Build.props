@@ -1,7 +1,7 @@
 <Project>
     <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))"/>
     <ItemGroup>
-        <PackageReference Include="EFCoreSecondLevelCacheInterceptor" Version="3.9.2" />
+        <PackageReference Include="EFCoreSecondLevelCacheInterceptor" Version="4.1.1" />
         <PackageReference Update="Threenine.Database.Configuration" Version="1.0.4" />
     </ItemGroup>
 </Project>
